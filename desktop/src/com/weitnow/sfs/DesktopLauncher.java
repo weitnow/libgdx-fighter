@@ -10,7 +10,7 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
-		config.setTitle("Stick Figure Showdown");
+		config.setTitle("Gemetzel");
 		config.setWindowedMode(GlobalVariables.WINDOW_WIDTH,GlobalVariables.WINDOW_HEIGHT);
 		new Lwjgl3Application(new SFS(), config);
 	}
