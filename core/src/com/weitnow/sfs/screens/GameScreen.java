@@ -1,5 +1,7 @@
 package com.weitnow.sfs.screens;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
@@ -45,7 +47,8 @@ public class GameScreen implements Screen, InputProcessor {
 
     @Override
     public void show() {
-
+        // process user input
+        Gdx.input.setInputProcessor(this);
     }
 
     @Override
@@ -122,12 +125,36 @@ public class GameScreen implements Screen, InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        return false;
+        // check if player has pressed a movement key
+        if (keycode == Input.Keys.A) {
+            game.player.moveLeft();
+        } else if (keycode == Input.Keys.D) {
+            game.player.moveRight();
+        }
+        if (keycode == Input.Keys.W) {
+            game.player.moveUp();
+        } else if (keycode == Input.Keys.S) {
+            game.player.moveDown();
+        }
+
+        return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        return false;
+        // if player has released a movement key, stop moving in that direction
+        if (keycode == Input.Keys.A) {
+            game.player.stopMovingLeft();
+        } else if (keycode == Input.Keys.D) {
+            game.player.stopMovingRight();
+        }
+        if (keycode == Input.Keys.W) {
+            game.player.stopMovingUp();
+        } else if (keycode == Input.Keys.S) {
+            game.player.stopMovingDown();
+        }
+
+        return true;
     }
 
     @Override

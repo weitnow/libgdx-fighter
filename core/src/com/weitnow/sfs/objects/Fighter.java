@@ -134,6 +134,12 @@ public class Fighter {
             renderState = state;
             renderStateTime = stateTime;
         }
+
+        if (state == State.WALK) {
+            // if the fighter is walking, move in the direction of the movement direction vector
+            position.x += movementDirection.x * MOVEMENT_SPEED * deltaTime;
+            position.y += movementDirection.y * MOVEMENT_SPEED * deltaTime;
+        }
     }
 
     public void faceLeft() {
@@ -143,6 +149,62 @@ public class Fighter {
     public void faceRight() {
         facing = 1;
     }
+
+    private void changeState(State newState) {
+        state = newState;
+        stateTime = 0f;
+    }
+
+    private void setMovment(float x, float y) {
+        movementDirection.set(x, y);
+        if (state == State.WALK && x == 0 && y == 0) {
+            changeState(State.IDLE);
+        } else if (state == State.IDLE && (x != 0 || y != 0)) {
+            changeState(State.WALK);
+        }
+    }
+
+    public void moveLeft() {
+        setMovment(-1, movementDirection.y);
+    }
+
+    public void moveRight() {
+        setMovment(1, movementDirection.y);
+    }
+
+    public void moveUp() {
+        setMovment(movementDirection.x, 1);
+    }
+
+    public void moveDown() {
+        setMovment(movementDirection.x, -1);
+    }
+
+    public void stopMovingLeft() {
+        if (movementDirection.x == -1) {
+            setMovment(0, movementDirection.y);
+        }
+    }
+
+    public void stopMovingRight() {
+        if (movementDirection.x == 1) {
+            setMovment(0, movementDirection.y);
+        }
+    }
+
+    public void stopMovingUp() {
+        if (movementDirection.y == 1) {
+            setMovment (movementDirection.x, 0);
+        }
+    }
+
+    public void stopMovingDown() {
+        if (movementDirection.y == -1) {
+            setMovment (movementDirection.x, 0);
+        }
+    }
+
+
 
     private void initializeBlockAnimation(AssetManager assetManager) {
         Texture spriteSheet = assetManager.get(Assets.BLOCK_SPRITE_SHEET);
