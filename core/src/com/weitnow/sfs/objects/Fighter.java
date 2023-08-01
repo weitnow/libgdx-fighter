@@ -118,8 +118,9 @@ public class Fighter {
         }
         batch.setColor(color);
 
-        batch.draw(currentFrame, position.x, position.y, currentFrame.getRegionWidth() * GlobalVariables.WORLD_SCALE,
-                currentFrame.getRegionHeight() * GlobalVariables.WORLD_SCALE);
+        batch.draw(currentFrame, position.x, position.y, currentFrame.getRegionWidth() * 0.5f * GlobalVariables.WORLD_SCALE,
+                0,currentFrame.getRegionWidth() * GlobalVariables.WORLD_SCALE,
+                currentFrame.getRegionHeight() * GlobalVariables.WORLD_SCALE, facing, 1f, 0f);
 
         batch.setColor(1, 1, 1,1);
     }
