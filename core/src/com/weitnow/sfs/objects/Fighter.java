@@ -12,14 +12,12 @@ import com.weitnow.sfs.ressources.Assets;
 import com.weitnow.sfs.ressources.GlobalVariables;
 
 public class Fighter {
-
     // number of frame rows and columns in each animation sprite sheet
     private static final int FRAME_ROWS = 2, FRAME_COLS = 3;
-
     // how fast a fighter can move
     public static final float MOVEMENT_SPEED = 10f;
     // maximum life a fighter can have
-    public static final float MAX_LIFE = 100f;
+    public static final float MAX_LIFE = 10f;
     //amount of damage a fighter's hit will inflict
     public static final float HIT_STRENGTH = 5f;
     // factor to decrease damage if a fighter gets hit while blocking
@@ -27,7 +25,6 @@ public class Fighter {
     // distinguishing details
     private String name;
     private Color color;
-
     // state
     public enum State {
         BLOCK,
@@ -39,7 +36,6 @@ public class Fighter {
         WALK,
         WIN
     }
-
     private State state;
     private float stateTime;
     private State renderState;

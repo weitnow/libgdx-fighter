@@ -4,7 +4,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.weitnow.sfs.objects.Fighter;
 import com.weitnow.sfs.ressources.Assets;
 import com.weitnow.sfs.screens.GameScreen;
