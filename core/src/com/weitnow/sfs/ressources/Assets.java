@@ -3,6 +3,8 @@ package com.weitnow.sfs.ressources;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -51,6 +53,7 @@ public class Assets {
         // load all assets
         loadGameplayAssets();
         loadFonts();
+        loadAudio();
     }
 
     private void loadGameplayAssets() {
@@ -89,9 +92,21 @@ public class Assets {
         // load the large font
         FreetypeFontLoader.FreeTypeFontLoaderParameter largeFont = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
         largeFont.fontFileName = ROBOTO_REGULAR;
-        largeFont.fontParameters.size = 132;
+        largeFont.fontParameters.size = 130;
         largeFont.fontParameters.borderWidth = 4;
         manager.load(LARGE_FONT, BitmapFont.class, largeFont);
+
+    }
+
+    private void loadAudio() {
+        manager.load(BLOCK_SOUND, Sound.class);
+        manager.load(BOO_SOUND, Sound.class);
+        manager.load(CLICK_SOUND, Sound.class);
+        manager.load(CHEER_SOUND, Sound.class);
+        manager.load(HIT_SOUND, Sound.class);
+        manager.load(MUSIC, Music.class);
+
+
 
     }
 
